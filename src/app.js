@@ -39,7 +39,7 @@ let generateExcuse = function() {
   return phrase;
 };
 
-let btnAdd = document.querySelector("button");
+let btnAdd = document.querySelector("#add");
 let input = document.querySelector("input");
 
 btnAdd.addEventListener("click", () => {
