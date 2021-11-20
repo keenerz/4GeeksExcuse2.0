@@ -11,20 +11,21 @@ window.onload = function() {
   });
 };
 
+let who = ["The dog", "My grandma", "My turtle", "My bird"];
+let action = ["ate", "peed on", "crushed", "broke"];
+let what = ["my homework", "the keys", "the car"];
+let when = [
+  "before class.",
+  "when I finished.",
+  "during lunch.",
+  "while I was praying."
+];
+
 let generateExcuse = function() {
-  let who = ["The dog", "My grandma", "My turtle", "My bird"];
-  let action = ["ate", "peed on", "crushed", "broke"];
-  let what = ["my homework", "the keys", "the car"];
-  let when = [
-    "before class.",
-    "when I finished.",
-    "during lunch.",
-    "while I was praying."
-  ];
-  let whoIndex = Math.floor(Math.random() * 3);
-  let actionIndex = Math.floor(Math.random() * 3);
-  let whatIndex = Math.floor(Math.random() * 2);
-  let whenIndex = Math.floor(Math.random() * 4);
+  let whoIndex = Math.floor(Math.random() * who.length);
+  let actionIndex = Math.floor(Math.random() * action.length);
+  let whatIndex = Math.floor(Math.random() * what.length);
+  let whenIndex = Math.floor(Math.random() * when.length);
 
   let phrase =
     who[whoIndex] +
@@ -38,6 +39,21 @@ let generateExcuse = function() {
   return phrase;
 };
 
+let btnAdd = document.querySelector("button");
+let input = document.querySelector("input");
+
+btnAdd.addEventListener("click", () => {
+  if (input == null) {
+    return;
+  } else {
+    who.push(input.value);
+    input.value = "";
+    generateExcuse();
+    console.log(who);
+  }
+});
+
+//button effects code
 var buttons = document.getElementsByTagName("button");
 
 Array.prototype.forEach.call(buttons, function(b) {
